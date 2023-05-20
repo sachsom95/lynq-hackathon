@@ -1,11 +1,9 @@
 import React from 'react'
 import {
-    Button,
     Center,
     Container,
     Heading,
     Text,
-    VStack
 } from '@chakra-ui/react'
 
 import UploadForm from '../components/UploadForm'
