@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {
     FormErrorMessage,
@@ -10,7 +10,9 @@ import {
 
 
 const UploadForm = ({ marginTop }) => {
- 
+ const [selectedFile, setSelectedFile] = useState();
+ const [isFilePicked, setIsFilePicked] = useState(false);
+
  const {
     handleSubmit,
     register,
@@ -18,8 +20,10 @@ const UploadForm = ({ marginTop }) => {
  } = useForm()   
 
 
- const onSubmit = () => {
-        
+
+
+ const onSubmit = (data) => {
+    console.log(data.file[0])
  }
 
 return (
