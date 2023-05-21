@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
-@app.route('/process_pdf', methods=['POST'])
+@app.route('/process_pdf', methods=['GET'])
 def process_pdf():
     # TODO: Implement PDF processing using LLM model
 
