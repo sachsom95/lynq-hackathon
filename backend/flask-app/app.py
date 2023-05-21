@@ -4,6 +4,8 @@
 # pip install unstructured
 # pip install unstructured[local-inference]
 # pip install azure-core
+# pip install PyPDF2
+
 
 
 from flask import Flask, request, jsonify
@@ -11,6 +13,8 @@ import json
 from langchain import PromptTemplate, LLMChain
 from langchain.llms import OpenAI
 import os
+from PyPDF2 import PdfFileReader
+
 app = Flask(__name__)
 
 # Set your OpenAI API Key
