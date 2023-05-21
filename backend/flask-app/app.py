@@ -14,7 +14,7 @@ import os
 app = Flask(__name__)
 
 # Set your OpenAI API Key
-api_key = "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"
+api_key = "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"
 os.environ["OPENAI_API_KEY"] = api_key
 
 # Initialize the OpenAI LLM
@@ -88,5 +88,18 @@ def process_pdf():
 
     return jsonify(response)
 
+@app.route('/process_pdf_llm', methods=['GET'])
+def process_pdf_llm():
+    # TODO: Implement actual PDF processing using LLM model
+    # For now, we'll assume that the "processed" PDF text is "colorful socks"
+    processed_pdf_text = "colorful socks"
+
+    # Use the LLM chain to generate a response
+    response = llm_chain(processed_pdf_text)
+    return jsonify(response)
+
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
