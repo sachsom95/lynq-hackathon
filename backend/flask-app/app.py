@@ -13,8 +13,8 @@ import json
 from langchain import PromptTemplate, LLMChain
 from langchain.llms import OpenAI
 import os
-from PyPDF2 import PdfFileReader
-
+from PyPDF2 import PdfReader
+import io
 app = Flask(__name__)
 
 # Set your OpenAI API Key
@@ -27,7 +27,7 @@ llm = OpenAI(model_name="text-ada-001")
 # Setup a prompt template with a variable called product
 my_prompt = PromptTemplate(
     input_variables=["product"],
-    template="What is a good name for a company that makes {product}?",
+    template="give a summary of this {product}?",
 )
 
 # Set up a langchain using the model and the prompt template
@@ -94,16 +94,34 @@ def process_pdf():
 
 @app.route('/process_pdf_llm', methods=['GET'])
 def process_pdf_llm():
-    # TODO: Implement actual PDF processing using LLM model
-    # For now, we'll assume that the "processed" PDF text is "colorful socks"
-    processed_pdf_text = "colorful socks"
+    # Check if a file was provided in the request
+   # Get the file path from the 'file' query parameter
+    file_path = request.args.get('file')
 
-    # Use the LLM chain to generate a response
-    response = llm_chain(processed_pdf_text)
-    return jsonify(response)
+    if not file_path:
+        return jsonify({'error': 'No file provided'}), 400
+
+    # Check if the file is a PDF
+    if file_path.endswith('.pdf'):
+        with open(file_path, 'rb') as f:
+            pdf_data = f.read()
+
+        # Extract text from the PDF using PyPDF2
+        pdf_reader = PdfReader(io.BytesIO(pdf_data))
+        text = ""
+        for page_num in range(pdf_reader.numPages):
+            page = pdf_reader.getPage(page_num)
+            text += page.extractText()
+
+        # Process the extracted text using LLM
+        response = llm_chain(text)
+        return jsonify({'response': response})
+
+    return jsonify({'error': 'Invalid file format. Only PDF files are accepted.'}), 400
+
 
 
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True, port=5001)
