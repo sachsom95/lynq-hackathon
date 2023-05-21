@@ -1,0 +1,225 @@
+{
+    "response": {
+      "nodes": [
+        {
+          "id": "1",
+          "data": {
+            "label": "Photosynthetic Organisms"
+          }
+        },
+        {
+          "id": "2",
+          "data": {
+            "label": "Photoautotrophs"
+          }
+        },
+        {
+          "id": "3",
+          "data": {
+            "label": "Carbon Dioxide"
+          }
+        },
+        {
+          "id": "4",
+          "data": {
+            "label": "Water"
+          }
+        },
+        {
+          "id": "5",
+          "data": {
+            "label": "Energy from Light"
+          }
+        },
+        {
+          "id": "6",
+          "data": {
+            "label": "Photoheterotrophs"
+          }
+        },
+        {
+          "id": "7",
+          "data": {
+            "label": "Organic Compounds"
+          }
+        },
+        {
+          "id": "8",
+          "data": {
+            "label": "Carbohydrates"
+          }
+        },
+        {
+          "id": "9",
+          "data": {
+            "label": "Oxygen"
+          }
+        },
+        {
+          "id": "10",
+          "data": {
+            "label": "Plants"
+          }
+        },
+        {
+          "id": "11",
+          "data": {
+            "label": "Algae"
+          }
+        },
+        {
+          "id": "12",
+          "data": {
+            "label": "Cyanobacteria"
+          }
+        },
+        {
+          "id": "13",
+          "data": {
+            "label": "Anoxygenic Photosynthesis"
+          }
+        },
+        {
+          "id": "14",
+          "data": {
+            "label": "Bacteria"
+          }
+        },
+        {
+          "id": "15",
+          "data": {
+            "label": "Carbohydrates"
+          }
+        },
+        {
+          "id": "16",
+          "data": {
+            "label": "Amino Acids"
+          }
+        },
+        {
+          "id": "17",
+          "data": {
+            "label": "Fatty Acids"
+          }
+        },
+        {
+          "id": "18",
+          "data": {
+            "label": "Cellular Respiration"
+          }
+        },
+        {
+          "id": "19",
+          "data": {
+            "label": "Oxidation"
+          }
+        },
+        {
+          "id": "20",
+          "data": {
+            "label": "Metabolism"
+          }
+        },
+        {
+          "id": "21",
+          "data": {
+            "label": "Chemical Reactions"
+          }
+        },
+        {
+          "id": "22",
+          "data": {
+            "label": "Cellular Compartments"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "1",
+          "target": "2"
+        },
+        {
+          "source": "1",
+          "target": "6"
+        },
+        {
+          "source": "2",
+          "target": "3"
+        },
+        {
+          "source": "2",
+          "target": "4"
+        },
+        {
+          "source": "2",
+          "target": "5"
+        },
+        {
+          "source": "6",
+          "target": "7"
+        },
+        {
+          "source": "3",
+          "target": "8"
+        },
+        {
+          "source": "4",
+          "target": "8"
+        },
+        {
+          "source": "5",
+          "target": "9"
+        },
+        {
+          "source": "10",
+          "target": "1"
+        },
+        {
+          "source": "11",
+          "target": "1"
+        },
+        {
+          "source": "12",
+          "target": "1"
+        },
+        {
+          "source": "13",
+          "target": "14"
+        },
+        {
+          "source": "3",
+          "target": "15"
+        },
+        {
+          "source": "16",
+          "target": "18"
+        },
+        {
+          "source": "17",
+          "target": "18"
+        },
+        {
+          "source": "15",
+          "target": "18"
+        },
+        {
+          "source": "18",
+          "target": "19"
+        },
+        {
+          "source": "18",
+          "target": "20"
+        },
+        {
+          "source": "19",
+          "target": "21"
+        },
+        {
+          "source": "20",
+          "target": "22"
+        }
+      ]
+    }
+}
+  

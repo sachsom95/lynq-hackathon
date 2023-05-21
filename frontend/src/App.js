@@ -1,12 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-import {ChakraProvider, Box} from '@chakra-ui/react'
+import { useEffect, useState } from 'react';
 import LandingPage from './pages/LandingPage';
 import Mindmap from './components/Mindmap';
-import {mindmapData } from './mockdata/mindmapdata';
-import dagre from 'dagre'
+import {Route, Routes} from 'react-router-dom'
+import OldApp from './oldcomponents/OldApp';
 
 function App() {
+  /*
+  useEffect(()=>{
+    getMessageFromBackend()
+  })
+
+  const [messageFromBackend, setMessageFromBackend] = useState("")
+/*
+  const [mindMapData, setMindMapData] = useState({})
+
+  const getMindMapData = () => {
+    fetch("", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+
+    })
+    .then(async res=> {
+      if(!res.ok){
+        alert("Error processing your PDF")
+      }
+      const getData = async() => {
+        const data = await res.json()
+        setMindMapData(data)
+      }
+      getData();
+    })
+
+  } 
+
+
   const dagreGraph = new dagre.graphlib.Graph()
   dagreGraph.setDefaultEdgeLabel(()=>({}))
 
@@ -45,16 +72,43 @@ function App() {
 
   
 
-  const mindMapAutoLayout = getLayoutedElements (mindmapData.nodes, mindmapData.edges)
+  //const mindMapAutoLayout = getLayoutedElements (mindmapData.nodes, mindmapData.edges)
+  const mindMapAutoLayout = getLayoutedElements (mindMapData.nodes, mindMapData.edges)
+  //<Mindmap n={mindMapAutoLayout.nodes} e={mindMapAutoLayout.edges}/> 
+  */
+
+  /*
+
+    const getMessageFromBackend = () => {
+        fetch("http://localhost:5000/", {
+          method: "GET",
+          headers: {"Content-Type": "application/json"},
+    
+        })
+        .then(async res=> {
+          if(!res.ok){
+            alert("Error getting messages")
+          }
+          const getData = async() => {
+            const data = await res.json()
+            setMessageFromBackend(data)
+          }
+          getData();
+        })
+    }
+    */
 
   
 
-  return (
-    <ChakraProvider>
-      <LandingPage />
-        {/*<Mindmap n={mindMapAutoLayout.nodes} e={mindMapAutoLayout.edges}/> */}
-    </ChakraProvider>
-  )
+    return (
+        <div>
+          <Routes>
+            <Route exact path="/" element={<LandingPage/>}/>   
+            <Route path="/mindmap" element={<Mindmap/>} />
+            <Route path="/old" element={<OldApp/>} />
+          </Routes>
+        </div>
+    )
 }
 
 export default App;
