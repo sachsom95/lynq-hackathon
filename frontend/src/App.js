@@ -51,8 +51,8 @@ function App() {
 
   return (
     <ChakraProvider>
-      {/*<LandingPage /> */}
-        <Mindmap n={mindMapAutoLayout.nodes} e={mindMapAutoLayout.edges}/>
+      <LandingPage />
+        {/*<Mindmap n={mindMapAutoLayout.nodes} e={mindMapAutoLayout.edges}/> */}
     </ChakraProvider>
   )
 }
