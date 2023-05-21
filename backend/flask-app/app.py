@@ -1,7 +1,36 @@
+#Install following stuff
+# pip install huggingface_hub
+# pip install langchain transformers PyPDF2 openai
+# pip install unstructured
+# pip install unstructured[local-inference]
+# pip install azure-core
+
+
 from flask import Flask, request, jsonify
 import json
-
+from langchain import PromptTemplate, LLMChain
+from langchain.llms import OpenAI
+import os
 app = Flask(__name__)
+
+# Set your OpenAI API Key
+api_key = "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"
+os.environ["OPENAI_API_KEY"] = api_key
+
+# Initialize the OpenAI LLM
+llm = OpenAI(model_name="text-ada-001")
+
+# Setup a prompt template with a variable called product
+my_prompt = PromptTemplate(
+    input_variables=["product"],
+    template="What is a good name for a company that makes {product}?",
+)
+
+# Set up a langchain using the model and the prompt template
+llm_chain = LLMChain(
+    llm=llm,
+    prompt=my_prompt
+)
 
 @app.route('/')
 def hello_world():
